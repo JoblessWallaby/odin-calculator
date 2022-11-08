@@ -1,11 +1,4 @@
-
-let num1 = prompt('Please choose a number');
-let num2 = prompt('Please choose a number');
-let operator = prompt('Please choose an operator')
-
-operate(operator, num1, num2);
-
-
+/*
 function operate(operator, num1, num2) {
   switch (operator) {
     case '+':
@@ -21,25 +14,37 @@ function operate(operator, num1, num2) {
       divide(num1,num2);
       break;
   }
-}
+}*/
+
+//Allows numbers to get displayed on calculator
+const numberButton = document.querySelectorAll('.number');
+const userInput = document.querySelector('.userInput');
+
+numberButton.forEach((button => {
+  button.addEventListener('click', function(e) {
+    userInput.append(button.textContent);
+  })
+}))
 
 
+//Add function
 function add(num1, num2) {
   let sum = (num1 + num2);
   console.log(sum);
 }
-
+//Subtract function
 function subtract(num1, num2) {
   let total = (num1 - num2);
   console.log(total);
 }
-
+//Multiply function
 function multiply(num1, num2) {
  let total = (num1 * num2);
  console.log(total);
 }
-
+//Divide function
 function divide(num1, num2) {
   let total = (num1 / num2);
   console.log(total);
 }
+
