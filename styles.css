@@ -26,9 +26,6 @@ body {
   grid-column: span 2;
 }
 
-.allClear {
-  grid-column: span 2;
-}
 
 .display {
   display:grid;
