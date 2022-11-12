@@ -9,6 +9,7 @@ let dotClick = false;
 let total;
 let operatorClicked = false;
 let newTotal;
+let displayNum;
 
 
 
@@ -17,6 +18,8 @@ const result = document.querySelector('.result');
 const numberButton = document.querySelectorAll('.number');
 const operandButton = document.querySelectorAll('.operand');
 const equal = document.querySelector('.equal');
+const allClear = document.querySelector('.allClear');
+const deleteButton = document.querySelector('.delete');
 
 //JS for each number pressed
 numberButton.forEach((numButton) => {
@@ -85,9 +88,23 @@ operandButton.forEach((operatorButton) => {
   })
 })
 
-//Equal Function
+//Equal Button
 equal.addEventListener('click', (e) => {
+  result.innerText = newTotal
   console.log(`Num 1: ${num1} Num 2: ${num2} Operand: ${operator} Previous operator ${previousOperator} Current operator ${operator}`)
+})
+
+//AllClear Button
+allClear.addEventListener('click', (e) => {
+  num1 = '';
+  num2 = '';
+  tempNum1 = '';
+  inputDis = ''
+  operator ='';
+  total = '';
+  newTotal = ''
+  userInput.innerText = '';
+  result.innerText ='';
 })
 
 //Operate Function
