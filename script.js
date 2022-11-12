@@ -45,13 +45,6 @@ numberButton.forEach((numButton) => {
     if(num1 !== '') {
       num2 = parseFloat(tempNum1);
     }
-//If there are two numbers and an operator. The values get calculated.
-    if (num1 && num2 && operator) {
-      operate(operator, num1, num2)
-      newTotal = total;
-      console.log(newTotal)
-      
-    }
 
   })
 })
@@ -90,6 +83,17 @@ operandButton.forEach((operatorButton) => {
 
 //Equal Button
 equal.addEventListener('click', (e) => {
+  if(num2 === 0) {
+    alert(`Hey you're breaking the laws of physics bro.`)
+    const text = 'BROKEN'
+    result.innerText = text;
+    return;
+  }
+  if (num1 && num2 && operator) {
+    operate(operator, num1, num2)
+    newTotal = Math.round((total + Number.EPSILON) * 100) / 100    ;
+    console.log(newTotal)
+  }
   result.innerText = newTotal
   console.log(`Num 1: ${num1} Num 2: ${num2} Operand: ${operator} Previous operator ${previousOperator} Current operator ${operator}`)
 })
@@ -147,8 +151,7 @@ function multiply (num1,num2) {
 
 //Divide Function
 function divide (num1,num2) {
-  total = (num1 / num2);
-
+    total = (num1 / num2);
 }
 
 //Modulus Function
