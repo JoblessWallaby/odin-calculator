@@ -46,6 +46,11 @@ numberButton.forEach((numButton) => {
       num2 = parseFloat(tempNum1);
     }
 
+    if (num1 && num2 && operator) {
+      operate(operator, num1, num2)
+      newTotal = Math.round((total + Number.EPSILON) * 100) / 100    ;
+      console.log(newTotal)
+    }
   })
 })
 
@@ -88,11 +93,6 @@ equal.addEventListener('click', (e) => {
     const text = 'BROKEN'
     result.innerText = text;
     return;
-  }
-  if (num1 && num2 && operator) {
-    operate(operator, num1, num2)
-    newTotal = Math.round((total + Number.EPSILON) * 100) / 100    ;
-    console.log(newTotal)
   }
   result.innerText = newTotal
   console.log(`Num 1: ${num1} Num 2: ${num2} Operand: ${operator} Previous operator ${previousOperator} Current operator ${operator}`)
